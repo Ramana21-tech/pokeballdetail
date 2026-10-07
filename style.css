@@ -1,0 +1,86 @@
+:root{--red:#e4372c;--ink:#1d2540;--snow:#f6f7fb;--sun:#ffcb05;--sky:#3d7dca;--line:#dfe3ee;--muted:#5d6580;--radius:14px}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Nunito Sans",system-ui,sans-serif;color:var(--ink);background:var(--snow);line-height:1.5}
+h1,h2,h3,button,.brand{font-family:"Fredoka",system-ui,sans-serif;margin:0}
+:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+
+/* Pokéball drawn in CSS */
+.ball{width:var(--s,64px);height:var(--s,64px);border-radius:50%;position:relative;border:calc(var(--s,64px)/16) solid var(--ink);
+  background:linear-gradient(var(--red) 0 48%,var(--ink) 48% 52%,#fff 52%)}
+.ball::after{content:"";position:absolute;inset:50% auto auto 50%;width:28%;height:28%;transform:translate(-50%,-50%);
+  border-radius:50%;background:#fff;border:calc(var(--s,64px)/16) solid var(--ink)}
+
+/* Buttons & inputs */
+button{cursor:pointer;border:0;border-radius:999px;padding:11px 22px;font-size:1rem;font-weight:500;background:var(--red);color:#fff;transition:transform .15s,background .15s}
+button:hover{transform:translateY(-1px);background:#c92d23}
+button:disabled{opacity:.6;cursor:wait;transform:none}
+button.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+button.ghost:hover{background:#fff;border-color:var(--ink)}
+input{width:100%;padding:13px 16px;font:inherit;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
+input:focus{outline:none;border-color:var(--sky)}
+label{display:block;font-weight:700;font-size:.9rem;margin:16px 0 6px}
+
+/* Login page */
+.split{min-height:100vh;display:grid;grid-template-columns:1fr 1fr}
+.hero{background:var(--red);color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:20px;padding:56px}
+.hero .ball{--s:150px;box-shadow:0 14px 0 rgba(0,0,0,.15);animation:wobble 1.2s ease-out .3s 1 both}
+.hero h1{font-size:clamp(2.6rem,5vw,4rem);line-height:1.05}
+.hero p{max-width:30ch;font-size:1.15rem;margin:0}
+@keyframes wobble{0%{transform:rotate(0)}25%{transform:rotate(-14deg)}50%{transform:rotate(10deg)}75%{transform:rotate(-5deg)}100%{transform:rotate(0)}}
+.panel{display:flex;align-items:center;justify-content:center;padding:32px}
+.form{width:100%;max-width:380px}
+.form h2{font-size:2rem}
+.sub{color:var(--muted);margin:6px 0 8px}
+.actions{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+.msg{min-height:1.5em;margin:16px 0 0;font-weight:700;color:var(--red)}
+.msg.ok{color:#1f8a4c}
+
+/* Dashboard */
+.bar{display:flex;align-items:center;gap:14px;padding:14px 28px;background:var(--ink);color:#fff}
+.bar .ball{--s:30px;border-color:#fff}
+.brand{font-size:1.4rem;margin-right:auto}
+.bar button.ghost{color:#fff;border-color:rgba(255,255,255,.35)}
+.bar button.ghost:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.wrap{max-width:960px;margin:0 auto;padding:40px 24px 64px}
+.search h1{font-size:clamp(1.8rem,4vw,2.6rem)}
+.search form{display:flex;gap:10px;margin-top:18px;max-width:520px}
+.status{color:var(--muted);margin:14px 0 0;min-height:1.5em}
+
+/* Result card */
+.result{margin-top:20px}
+.card{display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:center;background:#fff;border:2px solid var(--line);border-radius:var(--radius);padding:20px;max-width:620px}
+.art{background:color-mix(in srgb,var(--c,#aaa) 28%,#fff);border-radius:12px;display:grid;place-items:center;aspect-ratio:1}
+.art img{width:90%;image-rendering:pixelated}
+.card h3{font-size:1.8rem;text-transform:capitalize}
+.facts{display:flex;gap:20px;color:var(--muted);margin:10px 0 16px}
+.facts b{color:var(--ink)}
+
+/* Type chips */
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.chip{padding:2px 12px;border-radius:999px;font-size:.85rem;font-weight:700;text-transform:capitalize;
+  background:color-mix(in srgb,var(--c,#aaa) 25%,#fff);border:2px solid var(--c,#aaa)}
+.t-fire{--c:#f08030}.t-water{--c:#6890f0}.t-grass{--c:#78c850}.t-electric{--c:#f8d030}.t-ice{--c:#98d8d8}
+.t-fighting{--c:#c03028}.t-poison{--c:#a040a0}.t-ground{--c:#e0c068}.t-flying{--c:#a890f0}.t-psychic{--c:#f85888}
+.t-bug{--c:#a8b820}.t-rock{--c:#b8a038}.t-ghost{--c:#705898}.t-dragon{--c:#7038f8}.t-dark{--c:#705848}
+.t-steel{--c:#b8b8d0}.t-fairy{--c:#ee99ac}.t-normal{--c:#a8a878}
+
+/* Collection */
+.collection{margin-top:48px}
+.collection h2{font-size:1.6rem;display:flex;align-items:baseline;gap:10px}
+.count{background:var(--sun);color:var(--ink);border-radius:999px;padding:0 12px;font-size:1rem}
+.grid{list-style:none;padding:0;margin:18px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px}
+.mini{background:#fff;border:2px solid var(--line);border-radius:var(--radius);padding:12px;position:relative;text-align:center}
+.mini .art{aspect-ratio:1;margin-bottom:8px}
+.mini h3{font-size:1.1rem;text-transform:capitalize}
+.mini .chips{justify-content:center}
+.mini .x{position:absolute;top:8px;right:8px;width:30px;height:30px;padding:0;background:#fff;color:var(--ink);border:2px solid var(--line);font-size:1rem}
+.mini .x:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.empty{color:var(--muted);margin-top:18px}
+
+@media(max-width:760px){
+  .split{grid-template-columns:1fr}
+  .hero{padding:32px 24px;gap:12px}.hero .ball{--s:80px}
+  .card{grid-template-columns:1fr}.art{max-width:200px}
+  .bar{padding:12px 16px}
+}
+@media(prefers-reduced-motion:reduce){.hero .ball{animation:none}button{transition:none}}

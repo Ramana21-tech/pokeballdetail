@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pokébox · Log in</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="login">
+  <main class="split">
+    <section class="hero">
+      <div class="ball" aria-hidden="true"></div>
+      <h1>Pokébox</h1>
+      <p>Search any Pokémon and keep your favourites in one place.</p>
+    </section>
+    <section class="panel">
+      <form class="form" id="form">
+        <h2>Start your collection</h2>
+        <p class="sub">Pick a name and a password. No email needed.</p>
+        <label for="name">Name</label>
+        <input id="name" autocomplete="username" required>
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="current-password" minlength="6" placeholder="At least 6 characters" required>
+        <div class="actions">
+          <button type="submit" id="login">Log in</button>
+          <button type="button" id="signup" class="ghost">Create account</button>
+        </div>
+        <p class="msg" id="msg" role="status"></p>
+      </form>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>

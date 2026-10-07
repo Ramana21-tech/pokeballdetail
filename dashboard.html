@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pokébox</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="dashboard">
+  <header class="bar">
+    <div class="ball" aria-hidden="true"></div>
+    <span class="brand">Pokébox</span>
+    <span id="hello"></span>
+    <button id="logout" class="ghost">Log out</button>
+  </header>
+  <main class="wrap">
+    <section class="search">
+      <h1>Which Pokémon are you looking for?</h1>
+      <form id="searchForm">
+        <input id="q" placeholder="Try pikachu or 25" aria-label="Pokémon name or number" autocomplete="off">
+        <button type="submit" id="search">Search</button>
+      </form>
+      <p class="status" id="status" role="status"></p>
+      <div class="result" id="result"></div>
+    </section>
+    <section class="collection">
+      <h2>Your collection <span class="count" id="count">0</span></h2>
+      <ul class="grid" id="saved"></ul>
+      <p class="empty" id="empty">Nothing saved yet. Search for a Pokémon and press Save.</p>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
